@@ -24,15 +24,15 @@ public class Checker {
             }                                                                          //два списка с прибылью и убылью по годовому
             for (int s : monthlyReport.monthAndMore.keySet()) {
 
-                ArrayList<Mounth> mesCikl = monthlyReport.monthAndMore.get(s);
+                ArrayList<Month> mesCikl = monthlyReport.monthAndMore.get(s);
                 int pribls = 0, rashod = 0;
 
                 for (int i = 0; i < mesCikl.size(); i++) {
-                    Mounth podCikl = mesCikl.get(i);
+                    Month podCikl = mesCikl.get(i);
                     if (podCikl.isExpense == false) {
-                        pribls += podCikl.quantity * podCikl.sumOfOne;
+                        pribls += podCikl.getTotalSum();
                     } else {
-                        rashod += podCikl.quantity * podCikl.sumOfOne;
+                        rashod += podCikl.getTotalSum();
                     }                                                                     // сумма расх и приходов за месяц
                 }
                 if (pribls != pribl.get(s - 1)) {
