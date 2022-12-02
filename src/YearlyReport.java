@@ -10,7 +10,7 @@ public class YearlyReport {
     public void loadFile(String path) {
         years.clear();
         List<String> content =readFileContents(path);
-        if (content.isEmpty()){
+        if (content == null){
             System.out.println("Файл " + path + " пуст");
             return;
         }

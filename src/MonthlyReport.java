@@ -11,7 +11,7 @@ public class MonthlyReport {
 
     public void loadFile(int numOfMouth,String path){
         List<String> content = readFileContents(path);
-        if (content.isEmpty()){
+        if (content == null){
             System.out.println("Файл " + path + " пуст");
             return;
         }
@@ -43,13 +43,13 @@ public class MonthlyReport {
                 for (int i = 0; i < monthCikl.size(); i++) {
                     Month cikl = monthCikl.get(i);
                     if (cikl.isExpense == false) {
-                        pribl = cikl.quantity * cikl.sumOfOne;
+                        pribl = cikl.getTotalSum();
                         if (pribl >= priblMax) {
                             priblMax = pribl;
                             maxTovar = cikl.itemName;
                         }
                     } else {
-                        rash = cikl.quantity * cikl.sumOfOne;
+                        rash = cikl.getTotalSum();
                         if (rash >= rashodMax) {
                             rashodMax = rash;
                             minTovar = cikl.itemName;
